@@ -1,0 +1,28 @@
+
+
+#logo {
+	height:100%; width:100%;
+}
+
+#logo-wrapper {
+	width:50%;
+}
+
+.lives {
+	display:inline;
+	width:4em;
+}
+
+.dimmed {
+	opacity: .25;
+}
+
+#play-again {
+	margin:auto;
+}
+
+.mid {
+	width:20%;
+	margin:auto;
+	text-align:center;
+}
