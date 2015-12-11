@@ -105,14 +105,15 @@ function winGame(answer){
 
 function playAgain(){
 	$('#playAgain').show();
-	$('#main').hide();
+	$('#mainContent').hide();
+	$('.panel').hide();
 
 }
 
 function resetGame(){
 	$('#playAgain').hide();
-	$('#main').show();
-	$('.lives').show();
+	$('#mainContent').show();
+	$('.panel').show();
 	$('#message').text("You have 5 tries.")
 	$('#higher').addClass('dimmed');
 	$('#lower').addClass('dimmed');

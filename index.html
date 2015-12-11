@@ -33,7 +33,12 @@
         <input type="text" id="guessInput" placeholder="Guess!"class="col-xs-3">
         <btn id='submit' class="btn btn-success col-xs-1">
           <span class="glyphicon glyphicon-ok"></span></btn>
-        <div class="col-xs-4"></div>
+        <div class="btn-group col-xs-2">
+        <btn id='hint' class = "btn btn-info"> ? </btn>
+        <btn id='reset' class = "btn btn-warning">
+          <span class="glyphicon glyphicon-refresh"></span></btn>
+        </div>
+        <div class="col-xs-2"></div>
       </div>
       <div class="row feedback">
         <div class="col-xs-4"></div>
@@ -54,6 +59,10 @@
           </h4>
         </div>
       </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Previous Guesses</div>
+        <div class="panel-body"> </div>
       </div>
       <div id="playAgain" class="hidden">
         <div class='mid'>
