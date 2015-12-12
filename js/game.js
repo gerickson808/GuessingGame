@@ -38,7 +38,7 @@ $(document).ready(function(){
 function giveHint(correctAnswer){
 	var elevensRhymes = { 1:"shmeleven",2:"flelve",3:"blurbeen",
 										4:"poordean", 5:"schmifteen", 6:"fixlean",
-										7:"jebenteen",8:"ratemeen", 9:"tinebean", 0:"men"};
+										7:"jebenteen",8:"ratemeen", 9:"tinebean", 0:"den"};
 	var tensRhymes = {2:"plenty", 3:"blurty",4:"sporty",5:"thrifty",
 										6:"flixty",7:"bleventy",8:"fraidy",9:"blindy"};
 	var onesRhymes = {0:"",1:"fun",2:"blue",3:"free",4:"score",5:"dive",
@@ -52,7 +52,7 @@ function giveHint(correctAnswer){
 		rhyme = "fun wondered"
 	}
 	else if (digits.length === 2){
-		if (digits[0] === "1"){
+		if (digits[0] === 1){
 			rhyme = elevensRhymes[digits[1]];
 		}
 		else{
