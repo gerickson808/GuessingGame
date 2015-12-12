@@ -3,6 +3,7 @@ $(document).ready(function(){
 	$("#guessInput").focus();
 	var correctAnswer = generateNumber();
 	var lives = 5;
+	var previousGuesses = [];
 	$('#submit').on('click', function(){
 		lives = gameAction(correctAnswer, lives, previousGuesses);
 	});
