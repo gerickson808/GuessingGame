@@ -68,7 +68,7 @@ function giveHint(correctAnswer){
 function gameAction(correctAnswer, lives, previousGuesses){
 	var answer = submitGuess(correctAnswer, previousGuesses);
 	if (answer===0){
-		winGame(correctAnswer);
+		endGame('winner', correctAnswer);
 	}
 	else if (answer != undefined){
 		results(answer, previousGuesses);
@@ -78,7 +78,7 @@ function gameAction(correctAnswer, lives, previousGuesses){
 	};
 
 	if (lives == 0){
-		loseGame(correctAnswer);
+		endGame('loser',correctAnswer);
 	};
 	$('#guessInput').val('');
 	return lives;
@@ -167,17 +167,17 @@ function wrongMessage(previousGuesses, correctAnswer){
 	$('#message').text(message);
 }
 
-function loseGame(answer){
-	$('#message').text('You lose! The answer was '+answer+'.');
-	$('#message').after("<img class='endImg' src='images/loser.jpg'>");
+function endGame(result, answer){
+	var congrats = "";
+	if (result == 'winner'){
+		congrats = 'You did it!';
+	}
+	else {
+		congrats = 'You lose!';
+	};
+	$('#message').text(congrats + " The answer was " + answer + "!");
+	$('#message').after("<img class='endImg' src='images/"+result+".jpg'>");
 	setTimeout(playAgain, 3500);
-}
-
-function winGame(answer){
-	$('#message').text('You did it! The answer was '+answer+'!')
-	$('#message').after("<img class='endImg' src='images/winner.jpg'>");
-	setTimeout(playAgain, 3500);
-
 }
 
 function playAgain(){
