@@ -4,7 +4,6 @@ $(document).ready(function(){
 	var correctAnswer = generateNumber();
 	var lives = 5;
 	var previousGuesses = [];
-	console.log(correctAnswer);  //DELETE THIS WHEN DONE TESTING
 
 	$('#submit').on('click', function(){
 		lives = gameAction(correctAnswer, lives, previousGuesses);
@@ -72,13 +71,12 @@ function gameAction(correctAnswer, lives, previousGuesses){
 		winGame(correctAnswer);
 	}
 	else if (answer != undefined){
-		console.log(answer);
 		results(answer, previousGuesses);
 		loseLife(lives);
 		wrongMessage(previousGuesses, correctAnswer)
 		lives -=1;
 	};
-	console.log(lives); // DELETE AFTER TESTING
+
 	if (lives == 0){
 		loseGame(correctAnswer);
 	};
