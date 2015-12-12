@@ -183,18 +183,21 @@ function wrongMessage(previousGuesses, correctAnswer){
 
 function loseGame(answer){
 	$('#message').text('You lose! The answer was '+answer+'.');
-	setTimeout(playAgain, 3000);
+	$('#message').after("<img class='endImg' src='images/loser.jpg'>");
+	setTimeout(playAgain, 3500);
 }
 
 function winGame(answer){
 	$('#message').text('You did it! The answer was '+answer+'!')
-	setTimeout(playAgain, 3000);
+	$('#message').after("<img class='endImg' src='images/winner.jpg'>");
+	setTimeout(playAgain, 3500);
 
 }
 
 function playAgain(){
 	$('#playAgain').show();
 	$('#mainContent').hide();
+	$('.jumbotron').find('img').hide();
 	$('.panel').hide();
 
 }
@@ -202,6 +205,7 @@ function playAgain(){
 function resetDOM(){
 	$('#playAgain').hide();
 	$('#mainContent').show();
+	$('.jumbotron').find('img').hide();
 	$('.lives').show();
 	$('.panel').show();
 	$('#message').text("You have 5 tries.")
