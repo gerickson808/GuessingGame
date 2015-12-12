@@ -1,0 +1,36 @@
+
+
+#logo {
+	height:75%; width:75%;
+}
+
+#logo-wrapper {
+	width:40%;
+}
+
+.lives {
+	display:inline;
+	width:4em;
+}
+
+.dimmed {
+	opacity: .25;
+}
+
+#play-again {
+	margin:auto;
+}
+
+.mid {
+	width:20%;
+	margin:auto;
+	text-align:center;
+}
+
+.endImg {
+	position:relative;
+	display:block;
+	margin:auto;
+	height:30%;
+	width:30%;
+}
