@@ -1,24 +1,70 @@
 $(document).ready(function(){
 	$('#playAgain').hide().removeClass('hidden');
+	$("#guessInput").focus();
 	var correctAnswer = generateNumber();
 	var lives = 5;
 	var previousGuesses = [];
 	console.log(correctAnswer);  //DELETE THIS WHEN DONE TESTING
+
 	$('#submit').on('click', function(){
 		lives = gameAction(correctAnswer, lives, previousGuesses);
 	});
+
 	$(this).on('keypress',function(e){
 		if(e.keyCode == 13){
 			lives = gameAction(correctAnswer,lives, previousGuesses);
 		};
 	});
+
+	$("#hint").on('click', function(){
+		giveHint(correctAnswer);
+	});
+
+	$('#reset').on('click', function(){
+		resetGame()
+	});
+
 	$('#play-again').on('click', function(){
+		resetGame()
+	});
+
+	function resetGame(){
 		lives = 5;
 		previousGuesses = [];
-		resetGame();
+		resetDOM();
 		correctAnswer = generateNumber();
-	});
+	}
 });
+
+function giveHint(correctAnswer){
+	var elevensRhymes = { 1:"shmeleven",2:"flelve",3:"blurbeen",
+										4:"poordean", 5:"schmifteen", 6:"fixlean",
+										7:"jebenteen",8:"ratemeen", 9:"tinebean", 0:"men"};
+	var tensRhymes = {2:"plenty", 3:"blurty",4:"sporty",5:"thrifty",
+										6:"flixty",7:"bleventy",8:"fraidy",9:"blindy"};
+	var onesRhymes = {0:"",1:"fun",2:"blue",3:"free",4:"score",5:"dive",
+										6:"picks",7:"devin",8:"great",9:"fine"};
+	var digits = correctAnswer.toString().split("");
+	for (var i = 0; i < digits.length; i++) {
+		digits[i] = Number(digits[i]);
+	};
+	var rhyme = "";
+	if (digits.length === 3){
+		rhyme = "fun wondered"
+	}
+	else if (digits.length === 2){
+		if (digits[0] === "1"){
+			rhyme = elevensRhymes[digits[1]];
+		}
+		else{
+			rhyme = [tensRhymes[digits[0]], onesRhymes[digits[1]]].join(" ");
+		};
+	}
+	else{
+		rhyme = onesRhymes[digits[0]];
+	}
+	$("#message").text("The number rhymes with " + rhyme + ".");
+}
 
 function gameAction(correctAnswer, lives, previousGuesses){
 	var answer = submitGuess(correctAnswer, previousGuesses);
@@ -153,7 +199,7 @@ function playAgain(){
 
 }
 
-function resetGame(){
+function resetDOM(){
 	$('#playAgain').hide();
 	$('#mainContent').show();
 	$('.lives').show();
