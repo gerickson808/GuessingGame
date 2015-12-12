@@ -141,18 +141,6 @@ function isInt(num){
 	};
 }
 
-function higher(){
-	$('#lower').addClass('dimmed');
-	$('#higher').removeClass('dimmed');
-	loseLife();
-}
-
-function lower(){
-	$('#higher').addClass('dimmed');
-	$('#lower').removeClass('dimmed');
-	loseLife();
-}
-
 function loseLife(lives){
 		$('.lives:eq('+(lives-1)+')').fadeOut('slow');
 }
